@@ -1,0 +1,19 @@
+{
+  "app": "daily-journal",
+  "entries": {
+    "2026-11-10": {
+      "date": "2026-11-10",
+      "mood": "Good",
+      "title": "presentation",
+      "body": "gdjfdfdhdkgdfhhfhgh",
+      "updated": 1794294270958
+    },
+    "2026-11-11": {
+      "date": "2026-11-11",
+      "mood": "Awful",
+      "title": "Debugging",
+      "body": "Nakaka stress",
+      "updated": 1794372283528
+    }
+  }
+}

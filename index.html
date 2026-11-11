@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Journal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Daily Journal</h1>
+    <p id="todayLabel" class="date"></p>
+  </div>
+  <button id="themeBtn" type="button" class="ghost">Dark mode</button>
+</header>
+<nav id="nav" aria-label="Sections">
+  <button type="button" data-section="today" class="active">Today</button>
+  <button type="button" data-section="history">History</button>
+  <button type="button" data-section="summary">Summary</button>
+  <button type="button" data-section="backup">Backup</button>
+</nav>
+<main>
+
+  <h1>TAE NI LLOYD</h1>
+  <section id="today">
+    <h2 id="formTitle">Write today's entry</h2>
+    <form id="entryForm" novalidate>
+      <fieldset>
+        <legend>How was your day?</legend>
+        <div id="moodPicker" class="moods"></div>
+        <p class="msg" id="moodMsg"></p>
+      </fieldset>
+      <label for="title">Title</label>
+      <input id="title" maxlength="60" placeholder="A few words for today">
+      <p class="msg" id="titleMsg"></p>
+      <label for="body">Entry <span id="count" class="count">0 / 1000</span></label>
+      <textarea id="body" rows="8" placeholder="What happened? How did it feel?"></textarea>
+      <p class="msg" id="bodyMsg"></p>
+      <div class="row">
+        <button id="saveBtn" type="submit">Save Entry</button>
+        <button id="cancelBtn" type="button" class="ghost" hidden>Cancel edit</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="history" hidden>
+    <h2>History</h2>
+    <div class="filters">
+      <input id="search" type="search" placeholder="Search title or text" aria-label="Search">
+      <select id="moodFilter" aria-label="Filter by mood"></select>
+      <label>From <input id="dateFrom" type="date"></label>
+      <label>To <input id="dateTo" type="date"></label>
+      <select id="sortOrder" aria-label="Sort order">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+      </select>
+    </div>
+    <p id="resultInfo" class="muted"></p>
+    <ul id="entryList" class="list"></ul>
+    <article id="detail" class="detail" hidden></article>
+  </section>
+
+  <section id="summary" hidden>
+    <h2>Summary</h2>
+    <div class="stats">
+      <div><b id="statStreak">0</b><span>day streak</span></div>
+      <div><b id="statMonth">0</b><span>entries this month</span></div>
+      <div><b id="statTop">-</b><span>most common mood</span></div>
+    </div>
+    <h3>Entries per mood</h3>
+    <div id="bars"></div>
+  </section>
+
+  <section id="backup" hidden>
+    <h2>Backup</h2>
+    <p class="muted">Your entries live only in this browser. Export a copy to keep them safe.</p>
+    <div class="row">
+      <button id="exportBtn" type="button">Export JSON</button>
+      <label class="filebtn">Import JSON <input id="importFile" type="file" accept=".json,application/json" hidden></label>
+      <button id="clearBtn" type="button" class="danger">Clear All</button>
+    </div>
+    <p class="msg" id="backupMsg"></p>
+  </section>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="confirmBox">
+  <form method="dialog">
+    <p id="confirmText"></p>
+    <div class="row">
+      <button value="yes" class="danger">Yes, continue</button>
+      <button value="no" class="ghost">Cancel</button>
+    </div>
+  </form>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
